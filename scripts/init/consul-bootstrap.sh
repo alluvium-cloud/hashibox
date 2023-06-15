@@ -4,9 +4,11 @@
 source .env
 
 # Bootstrap Consul ACLs, and save the bootstrap token in environment variables.
-bootstrap=$(CONSUL_HTTP_ADDR=http://192.168.60.10:8500 consul acl bootstrap --format=json)
+bootstrap=$(CONSUL_HTTP_ADDR=http://conad-server-1.alluvium.cloud:8500 consul acl bootstrap --format=json)
 token=$(jq -r .SecretID <<< "${bootstrap}")
 echo "export CONSUL_HTTP_TOKEN=${token}" | tee -a ./.env &> /dev/null
+
+echo "${bootstrap}" | tee -a bootstrap.log &> >/dev/null
 
 # Apply the token to Consul agents. It will be used for internal communication
 # instead of the anonymous one.

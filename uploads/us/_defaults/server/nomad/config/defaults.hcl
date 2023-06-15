@@ -1,26 +1,30 @@
 data_dir = "/opt/nomad"
 
+region = "us"
+
+bind_addr = "{{ GetInterfaceIP \"eth0\" }}"
+
 server {
   enabled          = true
   bootstrap_expect = 3
 
   server_join {
     retry_join = [
-      "192.168.60.10",
-      "192.168.60.20",
-      "192.168.60.30"
+      "conad-server-1.alluvium.cloud",
+      "conad-server-2.alluvium.cloud",
+      "conad-server-3.alluvium.cloud"
     ]
   }
-}
-
-client {
-  enabled = false
 }
 
 ports {
   http = 4646
   rpc  = 4647
   serf = 4648
+}
+
+client {
+  enabled = false
 }
 
 telemetry {
@@ -32,6 +36,7 @@ telemetry {
 }
 
 consul {
+  address             = "{{ GetInterfaceIP \"eth0\" }}:8500"
   server_service_name = "nomad"
   client_service_name = "nomad-client"
   auto_advertise      = true

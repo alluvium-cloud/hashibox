@@ -1,7 +1,17 @@
 data_dir = "/opt/nomad"
 
+region = "us"
+
+bind_addr = "{{ GetInterfaceIP \"eth0\" }}"
+
 server {
   enabled = false
+}
+
+ports {
+  http = 4646
+  rpc  = 4647
+  serf = 4648
 }
 
 client {
@@ -11,9 +21,9 @@ client {
 
   server_join {
     retry_join = [
-      "192.168.60.10",
-      "192.168.60.20",
-      "192.168.60.30"
+      "conad-server-1.alluvium.cloud",
+      "conad-server-2.alluvium.cloud",
+      "conad-server-3.alluvium.cloud"
     ]
   }
 
@@ -28,12 +38,6 @@ client {
       read_only = false
     }
   }
-}
-
-ports {
-  http = 4646
-  rpc  = 4647
-  serf = 4648
 }
 
 telemetry {
@@ -68,6 +72,7 @@ plugin "docker" {
 }
 
 consul {
+  address             = "{{ GetInterfaceIP \"eth0\" }}:8500"
   server_service_name = "nomad"
   client_service_name = "nomad-client"
   auto_advertise      = true

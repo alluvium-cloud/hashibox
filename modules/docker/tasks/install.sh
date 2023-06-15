@@ -5,7 +5,7 @@ DOCKER_VERSION="stable"
 
 # Set OS details.
 OS_KIND="linux"
-OS_DISTRO="ubuntu"
+OS_DISTRO="debian"
 OS_ARCH="amd64"
 case $(uname -m) in
   aarch64) OS_ARCH="arm64" ;;
@@ -30,6 +30,9 @@ sudo add-apt-repository \
   "deb [arch=${OS_ARCH}] https://download.docker.com/${OS_KIND}/${OS_DISTRO} \
   $(lsb_release -cs) \
   ${DOCKER_VERSION}"
+
+# Update
+sudo apt update
 
 # Install the latest version of Docker Engine - Community and containerd.
 sudo apt-get install -y \

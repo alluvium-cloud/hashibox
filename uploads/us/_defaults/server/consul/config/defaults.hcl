@@ -11,6 +11,10 @@ enable_local_script_checks = true
 
 server = true
 
+client_addr        = "{{ GetInterfaceIP \"eth0\" }}"
+advertise_addr     = "{{ GetInterfaceIP \"eth0\" }}"
+advertise_addr_wan = "{{ GetInterfaceIP \"eth0\" }}"
+
 ports {
   http = 8500
   grpc = 8502
@@ -18,9 +22,9 @@ ports {
 }
 
 retry_join = [
-  "192.168.60.10",
-  "192.168.60.20",
-  "192.168.60.30"
+  "conad-server-1.alluvium.cloud",
+  "conad-server-2.alluvium.cloud",
+  "conad-server-3.alluvium.cloud"
 ]
 
 acl {

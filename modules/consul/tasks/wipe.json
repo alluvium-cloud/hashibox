@@ -1,0 +1,5 @@
+{
+  "description": "Wipe Consul on targeted nodes",
+  "supports_noop": true,
+  "parameters": {}
+}

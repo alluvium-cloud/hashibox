@@ -5,7 +5,7 @@ DOCKER_VERSION="stable"
 
 # Set OS details.
 OS_KIND="linux"
-OS_DISTRO="ubuntu"
+OS_DISTRO="debian"
 OS_ARCH="amd64"
 case $(uname -m) in
   aarch64) OS_ARCH="arm64" ;;

@@ -26,16 +26,16 @@ Since we already have a running Nomad cluster, adding Waypoint to HashiBox is
 pretty straightforward.
 
 By running the following command, you install a Waypoint *server* on the Nomad
-client in the `us-west-1` datacenter, and register related services in Consul:
+client in the `home` datacenter, and register related services in Consul:
 
 ```bash
-$ export NOMAD_ADDR=http://192.168.60.10:4646
+$ export NOMAD_ADDR=http://conad-server-1.alluvium.cloud:4646
 $ waypoint install -accept-tos -platform=nomad \
-  -nomad-host=192.168.60.10:4646 \
+  -nomad-host=conad-server-1.alluvium.cloud:4646 \
   -nomad-region=us \
-  -nomad-dc=us-west-1 \
+  -nomad-dc=home \
   -nomad-consul-service=true \
-  -nomad-consul-service-hostname=192.168.61.10 \
+  -nomad-consul-service-hostname=conad-client-1.alluvium.cloud \
   -nomad-consul-datacenter=us \
   -nomad-host-volume=waypoint-server \
   -nomad-runner-host-volume=waypoint-runner
@@ -45,4 +45,4 @@ No need to manually create the Nomad host volumes `waypoint-server` and
 `waypoint-runner`. They already have been created by Nomad clients via the
 configuration files.
 
-Once done, the Waypoint UI is available at <https://192.168.61.10:9702>.
+Once done, the Waypoint UI is available at <https://conad-client-1.alluvium.cloud:9702>.

@@ -23,9 +23,9 @@ parity for simulating a Cloud Platform from end-to-end before going in productio
 ## Infrastructure
 
 This repository simulates a region called `us` in which there are 3 datacenters:
-- `us-west-1` with IP address 192.168.x.10.
-- `us-west-2` with IP address 192.168.x.20.
-- `us-east-1` with IP address 192.168.x.30.
+- `home` with IP address 192.168.x.10.
+- `home` with IP address 192.168.x.20.
+- `home` with IP address 192.168.x.30.
 
 In each datacenter we install 2 nodes:
 - One acting as a *server* for Consul, Nomad, and Vault with IP address
@@ -59,7 +59,7 @@ directory structure to better understand how it works:
   directory.
 - `inventory.yaml`: This file is used by Bolt and allows us to organize our nodes
   per groups so we can then run tasks on different groups of nodes such as every
-  nodes acting as `clients`, or every nodes in the `us-west-1` datacenter.
+  nodes acting as `clients`, or every nodes in the `home` datacenter.
 - `scripts/`: This contains the automation scripts used in the `Makefile`, executed
   on your local machine.
 - `modules/`: This contains Bolt tasks and plans to execute on the remote nodes.

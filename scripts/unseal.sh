@@ -5,9 +5,9 @@ source .env
 
 # List all IP addresses running a Vault server.
 IP_SERVERS=(
-  192.168.60.10
-  192.168.60.20
-  192.168.60.30
+  conad-server-1.alluvium.cloud
+  conad-server-2.alluvium.cloud
+  conad-server-3.alluvium.cloud
 )
 
 # Unseal Vault on each known IP address.

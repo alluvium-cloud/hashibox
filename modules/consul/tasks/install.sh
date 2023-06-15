@@ -13,7 +13,7 @@ fi
 
 # Set OS details.
 OS_KIND="linux"
-OS_DISTRO="ubuntu"
+OS_DISTRO="debian"
 OS_ARCH="amd64"
 case $(uname -m) in
   aarch64) OS_ARCH="arm64" ;;
@@ -38,10 +38,11 @@ sudo mkdir -p /opt/consul
 sudo chown -R consul:consul /opt/consul
 
 # Forward default DNS port 53 to Consul 8600.
-iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600
-iptables -t nat -A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600
-iptables -t nat -A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600
-iptables -t nat -A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600
+iptables -t nat -F
+iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 5353
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 5353
+iptables -t nat -A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 5353
+iptables -t nat -A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 5353
 
 # Add the appropriate Consul systemd service.
 sudo cp /hashibox/defaults/consul/consul.service /etc/systemd/system/consul.service

@@ -1,0 +1,5 @@
+{
+  "description": "Wipe the node (client mode)",
+  "supports_noop": true,
+  "parameters": {}
+}

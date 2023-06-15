@@ -1,17 +1,11 @@
-.PHONY: init up halt restart destroy sync update ssh
-
-export VAGRANT_PROVIDER ?= "virtualbox"
-export UBUNTU_VERSION ?= 20.04
-
-export VAGRANT_CLIENT_RAM ?= 1024
-export VAGRANT_CLIENT_CPUS ?= 1
-export VAGRANT_SERVER_RAM ?= 512
-export VAGRANT_SERVER_CPUS ?= 1
+.PHONY: init up halt restart destroy sync update ssh wipe
 
 export VAULT_UNSEAL_KEY ?= "INSERT-VAULT-UNSEAL-KEY"
 
 -include .env
 
+wipe:
+	./scripts/init/wipe.sh
 #
 # init is a shortcut to initialize the HashiBox environment for the first time.
 # Apply the environment variables before installing so we know if we need OSS
@@ -24,7 +18,6 @@ export VAULT_UNSEAL_KEY ?= "INSERT-VAULT-UNSEAL-KEY"
 # Vault node is "active".
 #
 init:
-	vagrant up --provider=${VAGRANT_PROVIDER} --parallel
 	./scripts/upload.sh
 	./scripts/dotenv.sh
 	./scripts/init/install.sh

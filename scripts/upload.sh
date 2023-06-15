@@ -14,15 +14,15 @@ bolt command run "rm -rf /hashibox/defaults /hashibox/overrides" --targets=us --
 # Upload default configuration files for agents acting as servers. Also, upload
 # specific configuration file per node to override default behavior.
 bolt file upload ./uploads/us/_defaults/server /hashibox/defaults --targets=servers --run-as root &
-  bolt file upload ./uploads/us/us-west-1/192.168.60.10 /hashibox/overrides --targets=192.168.60.10 --run-as root &
-  bolt file upload ./uploads/us/us-west-2/192.168.60.20 /hashibox/overrides --targets=192.168.60.20 --run-as root &
-  bolt file upload ./uploads/us/us-east-1/192.168.60.30 /hashibox/overrides --targets=192.168.60.30 --run-as root &
+  bolt file upload ./uploads/us/home/conad-server-1.alluvium.cloud /hashibox/overrides --targets=conad-server-1.alluvium.cloud --run-as root &
+  bolt file upload ./uploads/us/home/conad-server-2.alluvium.cloud /hashibox/overrides --targets=conad-server-2.alluvium.cloud --run-as root &
+  bolt file upload ./uploads/us/home/conad-server-3.alluvium.cloud /hashibox/overrides --targets=conad-server-3.alluvium.cloud --run-as root &
   wait
 
 # Upload default configuration files for agents acting as clients. Also, upload
 # specific configuration file per node to override default behavior.
 bolt file upload ./uploads/us/_defaults/client /hashibox/defaults --targets=clients --run-as root &
-  bolt file upload ./uploads/us/us-west-1/192.168.61.10 /hashibox/overrides --targets=192.168.61.10 --run-as root &
-  bolt file upload ./uploads/us/us-west-2/192.168.61.20 /hashibox/overrides --targets=192.168.61.20 --run-as root &
-  bolt file upload ./uploads/us/us-east-1/192.168.61.30 /hashibox/overrides --targets=192.168.61.30 --run-as root &
+  bolt file upload ./uploads/us/home/conad-client-1.alluvium.cloud /hashibox/overrides --targets=conad-client-1.alluvium.cloud --run-as root &
+  bolt file upload ./uploads/us/home/conad-client-2.alluvium.cloud /hashibox/overrides --targets=conad-client-2.alluvium.cloud --run-as root &
+  bolt file upload ./uploads/us/home/conad-client-3.alluvium.cloud /hashibox/overrides --targets=conad-client-3.alluvium.cloud --run-as root &
   wait

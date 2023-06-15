@@ -120,46 +120,46 @@ appropriate links for each node:
 * Link to Nomad
 * Link to Vault
 ---
-* `us-west-1`
+* `home`
 * *server*
-* 192.168.60.10
-* [:8500](http://192.168.60.10:8500)
-* [:4646](http://192.168.60.10:4646)
-* [:8200](http://192.168.60.10:8200)
+* conad-server-1.alluvium.cloud
+* [:8500](http://conad-server-1.alluvium.cloud:8500)
+* [:4646](http://conad-server-1.alluvium.cloud:4646)
+* [:8200](http://conad-server-1.alluvium.cloud:8200)
 ---
-* `us-west-1`
+* `home`
 * *client*
-* 192.168.61.10
-* [:8500](http://192.168.61.10:8500)
-* [:4646](http://192.168.61.10:4646)
+* conad-client-1.alluvium.cloud
+* [:8500](http://conad-client-1.alluvium.cloud:8500)
+* [:4646](http://conad-client-1.alluvium.cloud:4646)
 * *n/a*
 ---
-* `us-west-2`
+* `home`
 * *server*
-* 192.168.60.20
-* [:8500](http://192.168.60.20:8500)
-* [:4646](http://192.168.60.20:4646)
-* [:8200](http://192.168.60.20:8200)
+* conad-server-2.alluvium.cloud
+* [:8500](http://conad-server-2.alluvium.cloud:8500)
+* [:4646](http://conad-server-2.alluvium.cloud:4646)
+* [:8200](http://conad-server-2.alluvium.cloud:8200)
 ---
-* `us-west-2`
+* `home`
 * *client*
-* 192.168.61.20
-* [:8500](http://192.168.61.20:8500)
-* [:4646](http://192.168.61.20:4646)
+* conad-client-2.alluvium.cloud
+* [:8500](http://conad-client-2.alluvium.cloud:8500)
+* [:4646](http://conad-client-2.alluvium.cloud:4646)
 * *n/a*
 ---
-* `us-east-1`
+* `home`
 * *server*
-* 192.168.60.30
-* [:8500](http://192.168.60.30:8500)
-* [:4646](http://192.168.60.30:4646)
-* [:8200](http://192.168.60.30:8200)
+* conad-server-3.alluvium.cloud
+* [:8500](http://conad-server-3.alluvium.cloud:8500)
+* [:4646](http://conad-server-3.alluvium.cloud:4646)
+* [:8200](http://conad-server-3.alluvium.cloud:8200)
 ---
-* `us-east-1`
+* `home`
 * *client*
-* 192.168.61.30
-* [:8500](http://192.168.61.30:8500)
-* [:4646](http://192.168.61.30:4646)
+* conad-client-3.alluvium.cloud
+* [:8500](http://conad-client-3.alluvium.cloud:8500)
+* [:4646](http://conad-client-3.alluvium.cloud:4646)
 * *n/a*
 {% /table %}
 
