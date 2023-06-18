@@ -1,12 +1,14 @@
-.:5353 {
+.:53 {
   bind lo
+  bind eth0
   forward . 192.168.1.254
   errors
   log
 }
 
-consul.:5353 {
+consul.:53 {
   bind lo
+  bind eth0
   forward . 127.0.0.1:8600
   log
 }

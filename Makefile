@@ -1,11 +1,19 @@
-.PHONY: init up halt restart destroy sync update ssh wipe
 
-export VAULT_UNSEAL_KEY ?= "INSERT-VAULT-UNSEAL-KEY"
-
+.PHONY: init up halt restart destroy sync update ssh wipe nl cl vl
 -include .env
+
+nl:
+	pdsh -g all sudo tail -f /var/log/syslog  | grep nomad | grep -v coredns
+
+cl:
+	pdsh -g all sudo tail -f /var/log/syslog  | grep consul | grep -v coredns
+
+vl:
+	pdsh -g all sudo tail -f /var/log/syslog  | grep vault | grep -v coredns
 
 wipe:
 	./scripts/init/wipe.sh
+	./scripts/init/reset-env.sh
 #
 # init is a shortcut to initialize the HashiBox environment for the first time.
 # Apply the environment variables before installing so we know if we need OSS
@@ -21,15 +29,20 @@ init:
 	./scripts/upload.sh
 	./scripts/dotenv.sh
 	./scripts/init/install.sh
+	sleep 5
 	./scripts/init/vault-init.sh
+	sleep 5
 	./scripts/dotenv.sh
 	./scripts/restart.sh
-	sleep 5
+	sleep 10
 	./scripts/unseal.sh
+	sleep 3
 	./scripts/init/consul-bootstrap.sh
+	sleep 10
 	./scripts/init/nomad-bootstrap.sh
+	sleep 10
 	make sync
-	sleep 45
+	sleep 60
 	./scripts/init/consul-ca.sh
 	./scripts/init/vault-engines.sh
 

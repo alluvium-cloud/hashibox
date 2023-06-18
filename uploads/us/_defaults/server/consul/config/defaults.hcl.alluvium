@@ -6,9 +6,10 @@ ui_config {
   enabled = true
 }
 
+bootstrap_expect           = 3
 enable_local_script_checks = true
 
-server = false
+server = true
 
 client_addr        = "{{ GetInterfaceIP \"eth0\" }}"
 advertise_addr     = "{{ GetInterfaceIP \"eth0\" }}"
@@ -25,10 +26,6 @@ retry_join = [
   "conad-server-2.alluvium.cloud",
   "conad-server-3.alluvium.cloud"
 ]
-
-service {
-  name = "consul-client"
-}
 
 acl {
   enabled        = true

@@ -7,4 +7,5 @@ sudo systemctl stop consul
 sudo rm -rfv /etc/consul/*
 
 # Reset Consul Data
-sudo rm -rfv /var/consul/*
+sudo rm -rfv /var/consul
+sudo rm -rfv /opt/consul

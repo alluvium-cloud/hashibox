@@ -8,4 +8,4 @@ bootstrap=$(NOMAD_ADDR=http://conad-server-1.alluvium.cloud:4646 nomad acl boots
 token=$(jq -r .SecretID <<< "${bootstrap}")
 echo "export NOMAD_TOKEN=${token}" | tee -a ./.env &> /dev/null
 
-echo "${bootstrap}" | tee -a bootstrap.log &> >/dev/null
+echo "${bootstrap}" | tee bootstrap-nomad.log &> >/dev/null

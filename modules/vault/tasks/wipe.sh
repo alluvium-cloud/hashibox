@@ -8,7 +8,9 @@ sudo systemctl stop vault-agent
 sudo rm -rfv /etc/vault/*
 
 # Reset Vault Data
-sudo rm -rfv /opt/vault/*
+sudo rm -rfv /opt/vault
 
 # Reset Vault Agent Config
 sudo rm -rfv /etc/vault-agent/*
+
+sudo rm -rfv /hashibox

@@ -12,5 +12,6 @@ IP_SERVERS=(
 
 # Unseal Vault on each known IP address.
 for ip in "${IP_SERVERS[@]}"; do
+  echo "--- Unsealing $ip:8200"
   VAULT_ADDR=http://$ip:8200 vault operator unseal ${VAULT_UNSEAL_KEY} &> /dev/null
 done

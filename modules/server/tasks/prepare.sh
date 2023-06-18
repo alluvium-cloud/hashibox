@@ -37,10 +37,10 @@ sudo systemctl restart coredns
 
 # Forward default DNS port 53 to CoreDNS port 5353 (done so we can run CoreDNS as a non-root user)
 iptables -t nat -F
-iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 5353
-iptables -t nat -A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 5353
-iptables -t nat -A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 5353
-iptables -t nat -A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 5353
+# iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 5353
+# iptables -t nat -A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 5353
+# iptables -t nat -A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 5353
+# iptables -t nat -A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 5353
 
 # Flip Host DNS to CoreDNS
 sudo rm /etc/resolv.conf

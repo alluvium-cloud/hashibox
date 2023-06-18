@@ -1,6 +1,12 @@
 storage "raft" {
   path    = "/opt/vault"
-  node_id = "home"
+  node_id = "conad-server-3"
+  retry_join {
+      leader_api_addr = "http://conad-server-1.alluvium.cloud:8200"
+  }
+  retry_join {
+      leader_api_addr = "http://conad-server-2.alluvium.cloud:8200"
+  }
 }
 
 service_registration "consul" {

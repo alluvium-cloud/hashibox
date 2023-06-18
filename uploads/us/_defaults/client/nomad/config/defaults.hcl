@@ -17,7 +17,7 @@ ports {
 client {
   enabled = true
 
-  network_interface = "eth1"
+  network_interface = "eth0"
 
   server_join {
     retry_join = [
